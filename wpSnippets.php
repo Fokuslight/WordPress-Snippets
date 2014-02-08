@@ -53,7 +53,7 @@
     <?php wp_reset_postdata();
 ?>	
 
-
+<?php require 'form_processing.php'; ?>
 <?php
 if(isset($_POST['callFormSubmit'])){
 		$name = trim(strip_tags($_POST['name'])) . "<br>";
