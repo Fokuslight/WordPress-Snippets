@@ -1,5 +1,10 @@
 Advanced Custom Fields      Author: Elliot Condon
 BreadCrumb NavXT            Author: John Havlik
 Post Type Icons             Author: Matthew Boynes
-Simple Subscribe	    Author: latorante
-WordPress Slider Plugin     Author: Muneeb 
+Simple Subscribe	          Author: latorante
+WordPress Slider Plugin     Author: Muneeb
+Masonry/JQuery              Author: Desandro
+Infinite-scroll             Author: Beaver
+Kiwi Logo Carousel          Author: YourStyleDesign
+Slider Revolution           Author: ThemePunch
+
