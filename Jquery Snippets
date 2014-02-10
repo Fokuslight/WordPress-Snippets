@@ -1,0 +1,9 @@
+//Infinite Scroll Callback for Masonry
+
+var $newElems = $( newElements).css({ opacity: '0' });
+ 
+$newElems.animate({ opacity: '1' });
+$('#yourcontent').masonry( 'appended', $newElems, true );
+
+
+
