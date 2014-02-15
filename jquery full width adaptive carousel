@@ -1,0 +1,28 @@
+  var liWidth = ($('body').width())/4;
+  $('ul').css('margin-left', -liWidth).find('li').css('width', liWidth);
+
+  $(window).resize(function() {
+  	var liWidth = ($('body').width())/4;
+  	$('ul').css({'margin-left': -liWidth, 'left': '0'}).find('li').css('width', liWidth);
+  })
+
+  $('.next').on('click', function() {
+  	$('ul').animate({
+  		left: '+='+ -liWidth
+  	}, function() {
+  		$(this).children('li').first().appendTo('ul').parent('ul').css({
+  			marginLeft: '+='+liWidth
+  		});
+  	});
+  })
+  $('.prev').on('click', function() {
+  	$('ul').animate({
+  		left: '+='+ liWidth
+  	}, function() {
+  		$(this).children('li').last().prependTo('ul').parent('ul').css({
+  			marginLeft: '+=' + -liWidth
+  		});
+  	});
+  })
+  
+  // Carcass
