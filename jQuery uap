@@ -1,29 +1,49 @@
 (function($) {
 
-	$.fn.adaptive = function(margin, fontSize) {
+	$.fn.adaptive = function(marginTop, marginRight, marginBottom, marginLeft, paddingTop, paddingRight, paddingBottom, paddingLeft, fontSize) {
 		return this.each(function(index, elem) {
 			 
-			var e   = $(elem),
-				eW  = e.width(),
-				w   = $(window),
-				wW  = w.width(),
-				eM  = margin,
-				eFS = fontSize;
+			var e    =  $(elem),
+				eW   =  e.width(),
+				w    =  $(window),
+				wW   =  w.width(),
+				eMT  =  marginTop,
+				eMR  =  marginRight,
+				eMB  =  marginBottom,
+				eML  =  marginLeft,
+				ePT  =  paddingTop,
+				ePR  =  paddingRight,
+				ePB  =  paddingBottom,
+				ePL  =  paddingLeft,
+				eFS  =  fontSize;
 
 			w.resize(function() {
 
 				var nWW = w.width(),
 					nEW = (eW*nWW)/wW,
 					nEFS = (eFS*nWW)/wW;
-				if (margin == false) {
-					nEM = 'auto'
-				} else {
-					nEM = (eM*nWW)/wW
-				}
+
+				(marginTop == false)     ? (nEMT = 'auto') : (nEMT = (eMT*nWW)/wW);
+				(marginRight == false)   ? (nEMR = 'auto') : (nEMR = (eMR*nWW)/wW);
+				(marginBottom == false)  ? (nEMB = 'auto') : (nEMB = (eMB*nWW)/wW);
+				(marginLeft == false)    ? (nEML = 'auto') : (nEML = (eML*nWW)/wW);
+				
+				(paddingTop == false)    ? (nEPT = 'auto') : (nEPT = (ePT*nWW)/wW);
+				(paddingRight == false)  ? (nEPR = 'auto') : (nEPR = (ePR*nWW)/wW);
+				(paddingBottom == false) ? (nEPB = 'auto') : (nEPB = (ePB*nWW)/wW);
+				(paddingLeft == false)   ? (nEPL = 'auto') : (nEPL = (ePL*nWW)/wW);
+				
 				e.css({
-					width: nEW,
-					marginRight: nEM,
-					fontSize: nEFS + 'em'
+					width          :  nEW,
+					marginTop      :  nEMT,
+					marginRight    :  nEMR,
+					marginBottom   :  nEMB,
+					marginLeft     :  nEML,
+					paddingTop     :  nEPT,
+					paddingRight   :  nEPR,
+					paddingBottom  :  nEPB,
+					paddingLeft    :  nEPL,
+					fontSize       :  nEFS + 'em'
 				})
 			})
 		})
