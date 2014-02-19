@@ -1,0 +1,131 @@
+<snippet>
+	<content><![CDATA[
+<section class="b-header">
+	<section class="header">
+		<a href="#" class="logo"></a>
+		<nav class="nav">
+			<ul class="nav-list">
+				<li><a href="#">${1:Главная}</a></li>
+			</ul>
+		</nav>
+	</section>
+</section>
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>bh</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+<!-- 	<scope>source.html</scope> -->
+</snippet>
+
+
+<snippet>
+	<content><![CDATA[
+<section class="${1:block}">
+	<ul class="${1:block}-list">
+		<li>
+			<h3 class="${1:block}-title">${2}</h3>
+			<img src="#" class="${1:block}-image">
+			<p class="${1:block}-text">
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua.
+			</p>
+			<a href="#" class="${1:block}-more-link">${3:More}</a>
+		</li>
+	</ul>
+</section>
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>bt</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+<!-- 	<scope>source.html</scope> -->
+</snippet>
+
+<snippet>
+	<content><![CDATA[
+<section class="b-recent-posts">
+	<section class="recent-posts">
+		<ul class="recent-post-list">
+			<li>
+				<h3 class="recent-post-title"><a href="#" class="recent-post-title">${1}</a></h3>
+				<img src="${4}" class="recent-post-image">
+				<p class="recent-post-text">${2}</p>
+				<a href="#" class="recent-post-link">${3}</a>
+			</li>
+		</ul>
+	</section>
+</section>
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>brp</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+<!-- 	<scope>source.html</scope> -->
+</snippet>
+
+<snippet>
+	<content><![CDATA[
+<section class="b-slider">
+	<section class="slider">
+		<ul class="slider-list">
+			<li><img src="#"></li>
+			<li><img src="#"></li>
+			<li><img src="#"></li>
+			<li><img src="#"></li>
+		</ul>
+	</section>
+</section>
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>bs</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+<!-- 	<scope>source.html</scope> -->
+</snippet>
+
+<snippet>
+	<content><![CDATA[
+<input type="${1:text}" class="${2:text}">
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>input</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.html</scope> -->
+</snippet>
+
+<snippet>
+	<content><![CDATA[
+<section class="b-features">
+	<section class="features">
+		<ul class="features-list">
+			<li>
+				<img src="${3:#}" class="feature-image">
+				<h3 class="feature-title">${1}</h3>
+				<p class="feature-text">${2}</p>
+			</li>
+		</ul>
+	</section>
+</section>
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>bf</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+<!-- 	<scope>source.html</scope> -->
+</snippet>
+
+<snippet>
+	<content><![CDATA[
+<section class="b-recent-footer">
+	<section class="recent-footer">
+		<div class="footer-menu footer-blocks">
+			<h3 class="footer-menu-title footer-blocks-title">${1}</h3>
+			<ul class="footer-menu-list">
+				<li><a href="#">${2}</a></li>
+			</ul>
+		</div>
+	</section>
+	<h3 class="copyright">${3}</h3>
+</section>
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>bfo</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+<!-- 	<scope>source.html</scope> -->
+</snippet>
