@@ -1,0 +1,188 @@
+(function($) {
+
+	$.fn.flSlider = function() {
+		var slider = this,
+			sliderList = slider.find('.slider-list'),
+			sliderListElem = sliderList.children('li'),
+			imgs = slider.find('img'),
+			imgWidth = slider.width(),
+			sliderListHeight = imgs[0].height,
+			totalImgs = imgs.length,
+			current = 0,
+			animateDistance = imgWidth,
+			animate = true,
+			pagenav = true,
+			controls = true;
+
+			appendPaginav();
+			appendControls();
+			stylization();
+			animateMove();
+
+		if (pagenav === true) {
+
+
+			function appendPaginav() {
+				slider.append('<ul class="pagenav-list"></ul>');
+				window.pagenavList = slider.find('.pagenav-list');
+				imgs.each(function(index, elem) {
+					pagenavList.append('<li position="'+index+'"></li>')
+				});
+				window.pagenavListElem = pagenavList.find('li');
+
+			}
+
+		} else {
+			return true
+		}
+
+		if(controls === true) {
+
+			function appendControls() {
+				slider.append('<span class="prev slider-controls">Prev</span><span class="next slider-controls">Next</span>')
+				window.sliderControl = $('.slider-controls'),
+				window.sliderPrev = $('.prev'),
+				window.sliderNext = $('.next');
+			}
+
+		} else {
+			return true
+		}
+
+		if(animate === true) {
+
+
+
+			function stylization() {
+
+				$('body').css({
+					overflowY: "scroll"
+				})
+
+				slider.css({
+					width: "100%",
+					height: 700,
+					position: "relative",
+					overflow: "hidden"
+				});
+
+				sliderList.css({
+					position: "absolute",
+					listStyle: "none",
+					overflow: "hidden",
+					top: 0,
+					left: 0,
+					width: totalImgs*imgWidth
+					
+				})
+
+				sliderListElem.css({
+					display: "block",
+					float: "left"
+					
+				})
+
+				imgs.css({
+					width: imgWidth,
+				
+
+				})
+
+				var controlsPositionY = (slider.height()/2) - (sliderControl.height()/2);
+				sliderControl.css({
+					position: "absolute",
+					top: controlsPositionY,
+					zIndex: 10,
+					padding: 20,
+					background: "#fff",
+					cursor: "pointer"
+				})
+
+				sliderPrev.css({
+					left: 0
+				})
+
+				sliderNext.css({
+					right: 0
+				})
+
+				
+				pagenavList.css({
+					position: "absolute",
+					bottom: 20,
+					minWidth: 60,
+					listStyle: "none",
+					overflow: "hidden",
+
+				})
+
+				pagenavListElem.css({
+					display: "block",
+					float: "left",
+					width: 10,
+					height: 10,
+					borderRadius: 20,
+					background: "#000",
+					cursor: "pointer",
+					margin: 5
+				})
+
+				var pagenavPositionX = (slider.width()/2) - (pagenavList.width()/2);
+					pagenavList.css('left', pagenavPositionX);
+
+			}
+
+		} else {
+			return true;
+		}
+
+		function animateMove() {
+			sliderControl.on('click', function() {
+				
+				
+				if($(this).hasClass('next')) {
+					
+					sliderList.animate({
+						left: '-='+animateDistance
+					}, function() {
+						$(this).children('li').first().appendTo($(this)).parent($(this)).css({
+							left: '+='+animateDistance
+						});
+					});
+					if(current<totalImgs-1) {
+						$(pagenavListElem).removeClass('pagenavListElem-active');
+						current++;
+						$(pagenavListElem[current]).addClass('pagenavListElem-active');
+					} else {
+						$(pagenavListElem).removeClass('pagenavListElem-active');
+						current = 0;
+						$(pagenavListElem[current]).addClass('pagenavListElem-active');
+					}
+					
+						
+					
+				} else {
+					sliderList.children('li').last().prependTo(sliderList).parent(sliderList).css({
+						left: '-='+animateDistance
+					}).animate({
+						left: '+='+animateDistance
+					});
+					if(current>0) {
+						$(pagenavListElem).removeClass('pagenavListElem-active');
+						current--;
+						$(pagenavListElem[current]).addClass('pagenavListElem-active');
+					} else {
+						$(pagenavListElem).removeClass('pagenavListElem-active');
+						current = totalImgs-1;
+						$(pagenavListElem[current]).addClass('pagenavListElem-active');
+					}
+					console.log(current);
+				}
+			});
+			
+
+		}
+
+	}
+
+})(jQuery);
