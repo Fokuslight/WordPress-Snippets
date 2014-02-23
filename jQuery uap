@@ -17,9 +17,7 @@
 			}
 
 			var settings        = $.extend({}, defaults, o);
-				if((settings.marginAuto) = true) {
-					marginAuto = 'auto'
-				}
+
 			var e    =  $(elem),
 				eW   =  e.width(),
 				w    =  $(window),
