@@ -1,37 +1,54 @@
 (function($) {
 
-	$.fn.adaptive = function(marginTop, marginRight, marginBottom, marginLeft, paddingTop, paddingRight, paddingBottom, paddingLeft, fontSize) {
+	$.fn.adaptive = function(o) {
 		return this.each(function(index, elem) {
-			 
+			
+			var defaults = {
+				marginAuto: true,
+				marginTop: 0,
+				marginRight: 0,
+				marginBottom: 0,
+				marginLeft: 0,
+				paddingTop: 0,
+				paddingRight: 0,
+				paddingBottom: 0,
+				paddingLeft: 0,
+				fontSize: 14
+			}
+
+			var settings        = $.extend({}, defaults, o);
+				if((settings.marginAuto) = true) {
+					marginAuto = 'auto'
+				}
 			var e    =  $(elem),
 				eW   =  e.width(),
 				w    =  $(window),
 				wW   =  w.width(),
-				eMT  =  marginTop,
-				eMR  =  marginRight,
-				eMB  =  marginBottom,
-				eML  =  marginLeft,
-				ePT  =  paddingTop,
-				ePR  =  paddingRight,
-				ePB  =  paddingBottom,
-				ePL  =  paddingLeft,
-				eFS  =  fontSize;
+				mA   =  settings.marginAuto,
+				eMT  =  settings.marginTop,
+				eMR  =  settings.marginRight,
+				eMB  =  settings.marginBottom,
+				eML  =  settings.marginLeft,
+				ePT  =  settings.paddingTop,
+				ePR  =  settings.paddingRight,
+				ePB  =  settings.paddingBottom,
+				ePL  =  settings.paddingLeft,
+				eFS  =  settings.fontSize;
 
 			w.resize(function() {
 
-				var nWW = w.width(),
-					nEW = (eW*nWW)/wW,
-					nEFS = (eFS*nWW)/wW;
-
-				(marginTop == false)     ? (nEMT = 'auto') : (nEMT = (eMT*nWW)/wW);
-				(marginRight == false)   ? (nEMR = 'auto') : (nEMR = (eMR*nWW)/wW);
-				(marginBottom == false)  ? (nEMB = 'auto') : (nEMB = (eMB*nWW)/wW);
-				(marginLeft == false)    ? (nEML = 'auto') : (nEML = (eML*nWW)/wW);
-				
-				(paddingTop == false)    ? (nEPT = 'auto') : (nEPT = (ePT*nWW)/wW);
-				(paddingRight == false)  ? (nEPR = 'auto') : (nEPR = (ePR*nWW)/wW);
-				(paddingBottom == false) ? (nEPB = 'auto') : (nEPB = (ePB*nWW)/wW);
-				(paddingLeft == false)   ? (nEPL = 'auto') : (nEPL = (ePL*nWW)/wW);
+				var nWW  = w.width(),
+					nEW  = (eW*nWW)/wW,
+					nMA  = mA,
+					nEFS = (eFS*nWW)/wW,
+					nEMT = (eMT*nWW)/wW,
+					nEMR = (eMR*nWW)/wW,
+					nEMB = (eMB*nWW)/wW,
+					nEML = (eML*nWW)/wW,
+					nEPT = (ePT*nWW)/wW,
+					nEPR = (ePR*nWW)/wW,
+					nEPB = (ePB*nWW)/wW,
+					nEPL = (ePL*nWW)/wW;
 				
 				e.css({
 					width          :  nEW,
@@ -43,7 +60,7 @@
 					paddingRight   :  nEPR,
 					paddingBottom  :  nEPB,
 					paddingLeft    :  nEPL,
-					fontSize       :  nEFS + 'em'
+					fontSize       :  nEFS + 'px'
 				})
 			})
 		})
