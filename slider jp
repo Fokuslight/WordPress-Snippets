@@ -140,11 +140,27 @@
 
 		function paginateAnimate() {
 			pagenavListElem.on('click', function() {
-					var $this = $(this);
+					var $this = $(this),
+						ax = parseInt($this.attr('position')),
+						bx = parseInt($('.pagenavListElem-active').attr('position')),
 						coef = parseInt($this.attr('position')) - parseInt($('.pagenavListElem-active').attr('position'));
-						
-					for(var i = 0; i<2; i++) {
-						animateMoveForward();
+					
+					if(coef > 0) {
+						for(var i = 0; i<coef; i++) {
+							console.log(ax);
+							console.log(bx);
+							animateMoveForward();
+
+						}
+					} else if (coef<0){
+						coef = -1;
+						coef = parseInt($this.attr('position')) - coef;
+						for(var i = 0; i < coef; i++) {
+							console.log(ax);
+							console.log(bx);
+							animateMoveForward();
+
+						}
 					}
 				})
 		}		
