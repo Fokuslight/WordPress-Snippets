@@ -1,0 +1,46 @@
+<snippet>
+	<content><![CDATA[
+@h1color: #000;
+@h2color: #000;
+@h3color: #000;
+@h4color: #000;
+@h5color: #000;
+@h6color: #000;
+@metacolor: #000;
+@descriptioncolor: #000;
+@textcolor: #000;
+@linkcolor: #000;
+@quotescolor: #000;
+@backgroundcolor: #000;
+@bordercolor: #000;
+@separatecolor: #000;
+@marginbottom: 40px;
+@generalpadding: 40px;
+@padding: 20px;
+
+.border-radius(@radius) {
+	border-radius: @radius;
+	-moz-border-radius: @radius;
+}
+
+.background-gradient(@bottom, @top) {
+	background: -webkit-linear-gradient(@bottom, @top);
+	background: -moz-linear-gradient(@bottom, @top);
+	background: -ms-linear-gradient(@bottom, @top);
+	background: -o-linear-gradient(@bottom, @top);
+	background: linear-gradient(@bottom, @top);
+}
+
+.transition(@property, @duration, @timing, @delay) {
+	-webkit-transition: @property @duration @timing @delay;
+	-moz-transition: @property @duration @timing @delay;
+	-ms-transition: @property @duration @timing @delay;
+	-o-transition: @property @duration @timing @delay;
+	transition: @property @duration @timing @delay;
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+		<tabTrigger>lessmin</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.css</scope> -->
+</snippet>
