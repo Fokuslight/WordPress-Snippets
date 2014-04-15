@@ -1,38 +1,34 @@
-$(document).ready(function() {
-	
-		var ul = $('ul'),
-			widthScreen = $(window).width(),
-			n = 20,
-			items = ul.find('li'),
-			liWidth = $(items[0]).outerWidth()+n,
-			liHeight = $(items[0]).outerHeight()+n,
-			ulWidth = 4*liWidth,
-			ulleft = widthScreen/2 - ulWidth/2,
-			total = 960/liWidth;
-		ul.css({
-			position: 'absolute',
-			left: ulleft,
-			width: liWidth
-		});
-		items.css({
-			position: 'absolute'
-		});
-		var row = items.length/total;
-		console.log(row);
-		for (var m = 0; m < row; m++) {
-			for (var i = 0, k = 0; i < total; i++ ) {
-				var h = liHeight*k;
-				if((m+1)*total > 4) {
-					h = $(items[i+ m*total-total]).outerHeight() + $(items[i+ m*total-total]).offset().top + 20 - ul.offset().top;
-				}
-				
-
-				$(items[i+ m*total]).css({
-					left: liWidth*i,
-					top: h
-				});	
-			}
-				
+var ul = $('ul'),
+	widthScreen = $(window).width(),
+	n = 20,
+	items = ul.find('li'),
+	liWidth = $(items[0]).outerWidth()+n,
+	liHeight = $(items[0]).outerHeight()+n,
+	total = Math.floor(widthScreen/liWidth),
+	ulWidth = total*liWidth,
+	ulleft = widthScreen/2 - ulWidth/2;
+	console.log(total);
+ul.css({
+	position: 'absolute',
+	left: ulleft,
+	width: liWidth
+});
+items.css({
+	position: 'absolute'
+});
+var row = Math.floor(items.length/total);
+for (var m = 0; m < row; m++) {
+	for (var i = 0, k = 0; i < total; i++ ) {
+		var h = liHeight*k;
+		if((m+1)*total > total) {
+			h = $(items[i+ m*total-total]).outerHeight() + $(items[i+ m*total-total]).offset().top + 20 - ul.offset().top;
 		}
+		
 
-	});
+		$(items[i+ m*total]).css({
+			left: liWidth*i,
+			top: h
+		});	
+	}
+		
+}
