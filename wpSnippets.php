@@ -90,6 +90,7 @@ define( 'HH_THEME_URI' , get_template_directory_uri() );
 if ( function_exists( 'add_theme_support' ) ) {
     add_theme_support( 'post-thumbnails' );
     set_post_thumbnail_size( 300, 180 );
+    add_image_size('main-thumb', 300, 0, true);
 }
 
 if (function_exists('register_sidebar')) {
