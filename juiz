@@ -14,14 +14,14 @@
 .juiz_sps_link_google a:after{content: '\e810';}
 .juiz_sps_link_facebook a:after{content: '\e811';}
 .juiz_sps_link_vk a:after{content: '\e80e';}
-.juiz_sps_link_pinterest a:after{content: '';}
+.juiz_sps_link_pinterest a:after{content: '\e821';}
 .juiz_sps_link_mail a:after{content: '';}
 .juiz_sps_link_mail a { color: #333; text-shadow: 0 0 0; }
-.juiz_sps_link_viadeo a:after{content: '';}
-.juiz_sps_link_linkedin a:after{content: '';}
-.juiz_sps_link_stumbleupon a:after{content: '';}
+.juiz_sps_link_viadeo a:after{content: '\e825';}
+.juiz_sps_link_linkedin a:after{content: '\e822';}
+.juiz_sps_link_stumbleupon a:after{content: '\e824';}
 .juiz_sps_link_weibo a:after{content: '';}
-.juiz_sps_link_digg a:after{content: '';}
+.juiz_sps_link_digg a:after{content: '\e826';}
 .juiz_sps_link_twitter a:after{content: '\e80f';}
 
 .juiz_sps_link_vk a:hover{
@@ -43,4 +43,3 @@
 	background: #d34829;
 	color: #fff;
 }
-
