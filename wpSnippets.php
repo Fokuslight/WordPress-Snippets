@@ -173,3 +173,22 @@ function services_section_taxonomy()  {
     );
     register_taxonomy( 'section_services', array('services'), $sectionArgs );
 }
+
+
+<div class="login_form_widget">
+<?php if (!is_user_logged_in()) { 
+		echo "<p>Здравствуйте, <strong>гость</strong>!</p>";
+		wp_login_form(); ?>
+		<p><?php if ( get_option( 'users_can_register' ) ) : ?><a href="<?php echo esc_url( site_url( 'wp-login.php?action=register', 'login' ) ); ?>"><?php _e( 'Register' ); ?></a> | <?php endif; ?><a href="<?php bloginfo('wpurl'); ?>/wp-login.php?action=lostpassword">Забыли пароль?</a></p><?php } 
+	else { ?>
+		<?php global $user_identity;
+		get_currentuserinfo(); ?>
+		<p>Здравствуйте, <strong><?php echo $user_identity; ?></strong>!</p>
+		<ul>
+			<li><a href="<?php bloginfo('url'); ?>/wp-admin/profile.php">Изменить профиль</a></li>
+			<li><a href="<?php echo wp_logout_url(get_permalink()); ?>">Выйти</a></li>
+		</ul>
+<?php } ?>
+</div>
+
+
