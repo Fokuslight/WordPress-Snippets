@@ -213,3 +213,34 @@
 		}
 	}
 })(jQuery);
+
+
+// simple slider functions without disappearance
+
+	$('.controls-button').on('click', function() {
+		var slider = $('.slider-list'),
+			sliderItems = slider.find('li');
+		if ($(this).hasClass('next')) {
+			moveNext();
+		} else {
+			movePrev();
+		}
+
+		function moveNext() {
+			slider.stop(true, true).animate({
+				left: '-=' + 900
+			}, function() {
+				slider.children('li').first().appendTo(slider).parent(slider).css({
+					left: 0
+				});
+			});
+		}
+
+		function movePrev() {
+			slider.children('li').last().prependTo(slider).parent(slider).stop(true, true).css({
+				left: '-=' + 900
+			}).animate({
+				left: 0
+			});			
+		}
+	});
